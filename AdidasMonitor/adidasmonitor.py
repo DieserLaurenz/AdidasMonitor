@@ -92,7 +92,7 @@ if __name__ == "__main__":
         random_tls_extension_order=True,
     )
 
-    proxy_list = read_proxies_from_file()
+    proxy_list = read_proxies_from_file() if USE_PROXIES else None
 
     while True:
         proxy = fetch_random_proxy(proxy_list) if USE_PROXIES else None
