@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO,
                     ])
 
 PROXIES_FILE_PATH = "data/proxies.txt"
-USE_PROXIES = False
+USE_PROXIES = True
 PRODUCT_ID = "IP8158"
 REQUEST_INTERVAL = 5
 
@@ -25,7 +25,8 @@ def read_proxies_from_file() -> List[str]:
             return [line.strip() for line in f]
     except Exception as e:
         logging.error(e)
-        return []
+        logging.info("Add proxies or set USE_PROXIES to False")
+        exit()
 
 
 def fetch_random_proxy(proxies: List[str]) -> Dict[str, str]:
