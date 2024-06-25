@@ -23,8 +23,8 @@ def read_proxies_from_file() -> List[str]:
     try:
         with open(PROXIES_FILE_PATH, 'r') as f:
             return [line.strip() for line in f]
-    except FileNotFoundError:
-        logging.error(f"Proxies file not found at {PROXIES_FILE_PATH}.")
+    except Exception as e:
+        logging.error(e)
         return []
 
 
